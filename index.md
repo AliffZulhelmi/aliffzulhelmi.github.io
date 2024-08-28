@@ -1,9 +1,0 @@
----
-layout: default
-title: Home
----
-
-<div class="home-content">
-  <h1>Welcome to My Cyber World</h1>
-  <p>Explore my journey in cybersecurity, from hacking to secure coding.</p>
-</div>

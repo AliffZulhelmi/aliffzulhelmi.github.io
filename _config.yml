@@ -1,8 +1,18 @@
-title: "Aliff Zulhelmi"
-theme: cybersec
-plugins:
-  - jekyll-paginate
-paginate: 5
-paginate_path: "/blog/:num/"
+title: "AZChyper"
+description: "Best Cyber Security for You"
+baseurl: "" # Leave this empty if the site is deployed on the root of your domain
+url: "https://aliffzulhelmi.github.io" # Replace with your actual domain
 google_fonts:
   - VT323
+paginate: 5
+paginate_path: "/blog/page:num/"
+theme: minima
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-google-fonts
+markdown: kramdown
+kramdown:
+  input: GFM
