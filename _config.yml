@@ -1,0 +1,8 @@
+title: "Aliff Zulhelmi"
+theme: cybersec
+plugins:
+  - jekyll-paginate
+paginate: 5
+paginate_path: "/blog/:num/"
+google_fonts:
+  - VT323
