@@ -335,15 +335,19 @@ footer {
   margin-top: 30px;
 }
 
+.social-icons a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
 .social-icons img {
   width: 30px;
   height: 30px;
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
-  transition: filter 0.3s ease;
 }
 
-.social-icons img:hover {
-  filter: invert(55%) sepia(81%) saturate(1303%) hue-rotate(190deg) brightness(96%) contrast(87%);
+.social-icons a:hover {
+  transform: scale(1.2);
 }
 
 /* Icon End */
