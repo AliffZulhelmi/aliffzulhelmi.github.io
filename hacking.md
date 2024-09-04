@@ -6,11 +6,16 @@ category: hacking
 ---
 
 # Hacking Blog
-<ul>
+<div class="article-list">
   {% for post in site.categories.hacking %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <span>{{ post.date | date: "%B %-d, %Y" }}</span>
-  </li>
+  <div class="article-item">
+    <a href="{{ post.url | relative_url }}">
+      <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      <h2 class="article-title">{{ post.title }}</h2>
+    </a>
+    <div class="article-content">
+      {{ post.excerpt }}
+    </div>
+  </div>
   {% endfor %}
-</ul>
+</div>
