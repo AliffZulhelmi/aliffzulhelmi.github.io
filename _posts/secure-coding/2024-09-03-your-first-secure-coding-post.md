@@ -2,7 +2,7 @@
 layout: post
 title: "Your First Secure Coding Post"
 date: 2024-09-03
-categories: secure-coding, blog
+categories: [secure-coding, blog]
 image: /assets/images/matrix-rain.png
 excerpt: "This is a brief summary of the post."
 ---
