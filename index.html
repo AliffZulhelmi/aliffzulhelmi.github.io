@@ -4,8 +4,8 @@ title: Home
 ---
 
 <div class="home-content">
-  <h1 class="centered-text">Welcome to My CyberSec World</h1>
-  <p class="centered-text">Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!</p>
+  <h1 class="centered-text" id="glitchText">Welcome to My CyberSec World</h1>
+  <p class="centered-text" id="typewriter">Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!</p>
 
   <br><br><h2>Latest Blog Posts</h2>
   <ul class="blog-list">
@@ -30,3 +30,42 @@ title: Home
     <a href="https://github.com/AliffZulhelmi" target="_blank"><img src="{{ '/assets/images/github.png' | relative_url }}" alt="GitHub"></a>
   </div>
 </div>
+
+<script>
+  // Typewriter effect
+  const text = "Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!";
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 50);
+    }
+  }
+
+  // Glitch effect
+  function createGlitchEffect() {
+    const glitchText = document.getElementById('glitchText');
+    const originalText = glitchText.innerText;
+    
+    setInterval(() => {
+      const glitchChance = Math.random();
+      if (glitchChance < 0.3) {
+        const glitchedText = originalText
+          .split('')
+          .map(char => Math.random() < 0.5 ? String.fromCharCode(char.charCodeAt(0) + Math.floor(Math.random() * 10) - 5) : char)
+          .join('');
+        glitchText.innerText = glitchedText;
+        
+        setTimeout(() => {
+          glitchText.innerText = originalText;
+        }, 100);
+      }
+    }, 100);
+  }
+
+  window.onload = function() {
+    typeWriter();
+    createGlitchEffect();
+  };
+</script>
