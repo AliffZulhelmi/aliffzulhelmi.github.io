@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <title>{{ page.title | default: site.title }}</title>
+  </head>  
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="{{ '/' | relative_url }}">AZChyper</a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="{{ '/about' | relative_url }}">About Me</a></li>
+          <li><a href="{{ '/project' | relative_url }}">Project</a></li>
+          <li class="dropdown">
+            <a href="{{ '/blog' | relative_url }}" class="dropbtn">Blog</a>
+            <div class="dropdown-content">
+              <a href="{{ '/write-up' | relative_url }}">Write-Up</a>
+              <a href="{{ '/hacking' | relative_url }}">Hacking</a>
+              <a href="{{ '/secure-coding' | relative_url }}">Secure Coding</a>
+            </div>
+          </li>
+          <li><a href="{{ '/contact' | relative_url }}">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main>
+    <div class="article-list">
+      {{ content }}
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2024 AZChyper. All rights reserved.</p>
+  </footer>
+</body>
+</html>
