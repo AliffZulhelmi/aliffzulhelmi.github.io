@@ -4,19 +4,29 @@ title: Home
 ---
 
 <div class="home-content">
-  <h1 class="glitch" data-text="Welcome to My CyberSec World">Welcome to My CyberSec World</h1>
-  <p id="typewriter"></p>
-</div>
+  <h1 class="centered-text">Welcome to My CyberSec World</h1>
+  <p class="centered-text">Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!</p>
 
-<script>
-  const text = "Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!";
-  let i = 0;
-  function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("typewriter").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, 50);
-    }
-  }
-  window.onload = typeWriter;
-</script>
+  <h2>Latest Blog Posts</h2>
+  <ul class="blog-list">
+    {% for post in site.posts limit:3 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Projects</h2>
+  <ul class="project-list">
+    <li><a href="#">VulnGuard | Coming Soon</a></li>
+  </ul>
+
+  <div class="social-icons">
+    <!-- <a href="https://discord.gg/your-discord" target="_blank"><img src="{{ '/assets/images/discord-icon.png' | relative_url }}" alt="Discord"></a> -->
+    <a href="https://www.instagram.com/aliffzulhelmi.exe/" target="_blank"><img src="{{ '/assets/images/instagram.png' | relative_url }}" alt="Instagram"></a>
+    <a href="https://www.facebook.com/aliffzulhelmi21/" target="_blank"><img src="{{ '/assets/images/facebook.png' | relative_url }}" alt="Facebook"></a>
+    <a href="https://www.linkedin.com/in/aliff-zulhelmi/" target="_blank"><img src="{{ '/assets/images/linkedin.png' | relative_url }}" alt="LinkedIn"></a>
+    <a href="https://github.com/AliffZulhelmi" target="_blank"><img src="{{ '/assets/images/github.png' | relative_url }}" alt="GitHub"></a>
+  </div>
+</div>
