@@ -4,6 +4,19 @@ title: Home
 ---
 
 <div class="home-content">
-  <h1>Welcome to My Cyber World</h1>
-  <p>Explore my journey in cybersecurity, from hacking to secure coding.</p>
+  <h1 class="glitch" data-text="Welcome to My CyberSec World">Welcome to My CyberSec World</h1>
+  <p id="typewriter"></p>
 </div>
+
+<script>
+  const text = "Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!";
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 50);
+    }
+  }
+  window.onload = typeWriter;
+</script>
