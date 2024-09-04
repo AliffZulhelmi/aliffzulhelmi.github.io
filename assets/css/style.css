@@ -105,48 +105,43 @@ footer {
 .article-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   padding: 20px;
   background-color: #0D0B1E; /* Match the page background */
 }
 
 .article-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
   background-color: #111427;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .article-item img {
-  max-width: 100%;
+  width: 150px;  /* Adjust image size */
   height: auto;
   border-radius: 5px;
-  margin-bottom: 15px;
-}
-
-.article-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #FDFDFD; /* Title color */
-  margin-bottom: 10px;
-}
-
-.article-title:hover {
-  color: #3C97E2; /* Hover effect color */
-  text-decoration: underline;
+  margin-right: 20px; /* Space between image and text */
 }
 
 .article-content {
+  flex-grow: 1; /* Take up the remaining space */
   font-size: 16px;
   color: #FDFDFD;
   text-align: justify;
 }
 
-.article-content p {
-  margin: 0;
-  line-height: 1.6;
+.article-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #FDFDFD;
+  margin-bottom: 5px;
+}
+
+.article-title:hover {
+  color: #3C97E2; /* Hover effect color */
+  text-decoration: underline;
 }
