@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Google Fonts link for Roboto -->
+    <!-- Google Fonts link for Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <title>{{ page.title | default: site.title }}</title>
@@ -19,7 +19,7 @@
           <li><a href="{{ '/about' | relative_url }}">About Me</a></li>
           <li><a href="{{ '/project' | relative_url }}">Project</a></li>
           <li class="dropdown">
-            <a href="#" class="dropbtn">Blog</a>
+            <a href="{{ '/blog' | relative_url }}" class="dropbtn">Blog</a>
             <div class="dropdown-content">
               <a href="{{ '/write-up' | relative_url }}">Write-Up</a>
               <a href="{{ '/hacking' | relative_url }}">Hacking</a>
