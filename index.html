@@ -26,13 +26,21 @@ title: Home
 
 <script>
   // Typewriter effect
-  const text = "Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!";
-  let i = 0;
+  const typewriterText = "Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!";
+  const typewriterElement = document.getElementById('typewriter');
+  let index = 0;
+
   function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("typewriter").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, 50);
+    if (index < typewriterText.length) {
+      typewriterElement.innerHTML += typewriterText.charAt(index);
+      index++;
+      setTimeout(typeWriter, 100);
+    } else {
+      setTimeout(() => {
+        typewriterElement.innerHTML = "";
+        index = 0;
+        typeWriter();
+      }, 5000); // 5 seconds delay before restarting
     }
   }
 
