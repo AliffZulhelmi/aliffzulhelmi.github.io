@@ -304,11 +304,13 @@ footer {
 
 .blog-list, .project-list {
   list-style-type: none;
+  text-align: center;
   padding: 0;
 }
 
 .blog-list li, .project-list li {
   margin-bottom: 10px;
+  display: inline-block;
 }
 
 .post-date {
