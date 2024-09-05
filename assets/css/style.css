@@ -80,7 +80,7 @@ a:hover {
 
 .blog-list li, .project-list li {
   margin-bottom: 15px;
-  text-align: center;
+  text-align: left;
 }
 
 .post-date {
