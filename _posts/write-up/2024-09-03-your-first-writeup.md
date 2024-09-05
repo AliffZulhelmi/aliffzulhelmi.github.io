@@ -27,7 +27,7 @@ If the application doesn't properly sanitize the input, an attacker could manipu
 ## Symptoms
 1. Inclusion Point In Parameter
 
-<img src="/assets/images/LEKIR-LFI2RCE/1.png" width="200" height="auto"> <br>
+<img src="/assets/images/LEKIR-LFI2RCE/1.png" width="500" height="auto"> <br>
 
 
 As we can see here, The inclusion point in this picture is **page=page1.php** <br>
@@ -35,7 +35,7 @@ As we can see here, The inclusion point in this picture is **page=page1.php** <b
 2. Trying to access root directory <br>
 I'll try to access root directory by using '/../../../etc/passwd' in the parameter <br>
 
-![/../../../etc/passwd](/assets/images/LEKIR-LFI2RCE/2.png) <br>
+<img src="/assets/images/LEKIR-LFI2RCE/2.png" width="500" height="auto"> <br>
 
 As we can see here, we gained unathorized access to sensitive files in the server.
 We can confirm that is website is exposed to LFI vulnerability.
@@ -55,19 +55,19 @@ Clone From Github [php_filter_chain_generator.py](https://github.com/synacktiv/p
 
 We can use the following command to generate our custom payload:
 
-![command to generate base64 encoded payload](/assets/images/LEKIR-LFI2RCE/3.png) <br>
+<img src="/assets/images/LEKIR-LFI2RCE/3.png" width="500" height="auto"> <br>
 
 > python3 php_filter_chain_generator.py --chain '<?php system("ls"); ?>  ' <br>
 **you can adjust the payload as you wish**
 
 Next you will get the result: <br>
 
-![Result](/assets/images/LEKIR-LFI2RCE/4.png) <br>
+<img src="/assets/images/LEKIR-LFI2RCE/4.png" width="500" height="auto"> <br>
 
 3. Use The Payload On Our Target
 Now, We just need to copy our payload paste on target web's parameter <br>
 
-![payload](/assets/images/LEKIR-LFI2RCE/5.png) <br>
+<img src="/assets/images/LEKIR-LFI2RCE/5.png" width="500" height="auto"> <br>
  
 As we can see,we are successfully executed our malicious payload
 Now we are able to see the list of files and directory <br>
