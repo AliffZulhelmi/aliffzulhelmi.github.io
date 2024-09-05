@@ -22,17 +22,18 @@ LFI occurs when a **web application allows users to include files from the serve
 > $page = $_GET['page']; <br>
 > include($page . '.php'); <br>
 > ?> <br>
-> If the application doesn't properly sanitize the input, an attacker could manipulate the page parameter to include arbitrary files from the server.
+If the application doesn't properly sanitize the input, an attacker could manipulate the page parameter to include arbitrary files from the server.
 
 ## Symptoms
 1. Inclusion Point In Parameter
 
-![Inclusion Point URL](/assets/images/LEKIR-LFI2RCE/1.png) <br>
+<img src="/assets/images/LEKIR-LFI2RCE/1.png" width="200" height="auto"> <br>
 
-As we can see here, The inclusion point in this picture is `page=page1.php` <br>
 
-2. Trying to access root directory
-I'll try to access root directory by using '/../../../etc/passwd' in the parammeter <br>
+As we can see here, The inclusion point in this picture is **page=page1.php** <br>
+
+2. Trying to access root directory <br>
+I'll try to access root directory by using '/../../../etc/passwd' in the parameter <br>
 
 ![/../../../etc/passwd](/assets/images/LEKIR-LFI2RCE/2.png) <br>
 
@@ -45,7 +46,7 @@ Now we can move to the next stage, **Exploit The Vulnerable**
 
 1. Clone Payload From Github
 
-We can use the following payload to exploit the vulnerability: `page=php://filter/convert.base`
+We can use the following payload to exploit the vulnerability: **page=php://filter/convert.base**
 Using this tools from synacktiv, we can gain remote code execution! But this payload only works on ubuntu server from my testing <br>
 
 Clone From Github [php_filter_chain_generator.py](https://github.com/synacktiv/php_filter_chain_generator) <br>
@@ -57,7 +58,7 @@ We can use the following command to generate our custom payload:
 ![command to generate base64 encoded payload](/assets/images/LEKIR-LFI2RCE/3.png) <br>
 
 > python3 php_filter_chain_generator.py --chain '<?php system("ls"); ?>  ' <br>
-`you can adjust the payload as you wish`
+**you can adjust the payload as you wish**
 
 Next you will get the result: <br>
 
@@ -69,8 +70,8 @@ Now, We just need to copy our payload paste on target web's parameter <br>
 ![payload](/assets/images/LEKIR-LFI2RCE/5.png) <br>
  
 As we can see,we are successfully executed our malicious payload
-Now we are able to see the list of files and directory
-`The result might be different depends on your payload`
+Now we are able to see the list of files and directory <br>
+**The result might be different depends on your payload**
 
 ## LFI Prevention Tips:
 
