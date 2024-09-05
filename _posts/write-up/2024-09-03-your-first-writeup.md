@@ -16,46 +16,58 @@ In this write-up, we'll explore how LFI can be leveraged to achieve RCE, often r
 ## Understanding LFI
 LFI occurs when a **web application allows users to include files from the server using user input.** This can happen if the application improperly handles file paths provided by the user. For example, a web application might have a feature to include different views or templates based on user input:
 
-> php
-> Copy code
-> <?php
-> $page = $_GET['page'];
-> include($page . '.php');
-> ?>
+> php <br>
+> Copy code <br>
+> <?php <br>
+> $page = $_GET['page']; <br>
+> include($page . '.php'); <br>
+> ?> <br>
 > If the application doesn't properly sanitize the input, an attacker could manipulate the page parameter to include arbitrary files from the server.
 
 ## Symptoms
 1. Inclusion Point In Parameter
-![Inclusion Point URL](/assets/images/LEKIR-LFI2RCE/1.png)
-As we can see here, The inclusion point in this picture is `page=page1.php`
+
+![Inclusion Point URL](/assets/images/LEKIR-LFI2RCE/1.png) <br>
+
+As we can see here, The inclusion point in this picture is `page=page1.php` <br>
 
 2. Trying to access root directory
-I'll try to access root directory by using '/../../../etc/passwd' in the parammeter
-![/../../../etc/passwd](/assets/images/LEKIR-LFI2RCE/2.png)
+I'll try to access root directory by using '/../../../etc/passwd' in the parammeter <br>
+
+![/../../../etc/passwd](/assets/images/LEKIR-LFI2RCE/2.png) <br>
+
 As we can see here, we gained unathorized access to sensitive files in the server.
 We can confirm that is website is exposed to LFI vulnerability.
 
 ## Exploiting LFI to Achieve RCE
+
 Now we can move to the next stage, **Exploit The Vulnerable**
 
 1. Clone Payload From Github
-We can use the following payload to exploit the vulnerability: `page=php://filter/convert.base`
-Using this tools from synacktiv, we can gain remote code execution! But this payload only works on ubuntu server from my testing
 
-Clone From Github [php_filter_chain_generator.py](https://github.com/synacktiv/php_filter_chain_generator)
+We can use the following payload to exploit the vulnerability: `page=php://filter/convert.base`
+Using this tools from synacktiv, we can gain remote code execution! But this payload only works on ubuntu server from my testing <br>
+
+Clone From Github [php_filter_chain_generator.py](https://github.com/synacktiv/php_filter_chain_generator) <br>
 
 2. Crafting Our Custom Payload
+
 We can use the following command to generate our custom payload:
-![command to generate base64 encoded payload](/assets/images/LEKIR-LFI2RCE/3.png)
-> python3 php_filter_chain_generator.py --chain '<?php system("ls"); ?>  '
+
+![command to generate base64 encoded payload](/assets/images/LEKIR-LFI2RCE/3.png) <br>
+
+> python3 php_filter_chain_generator.py --chain '<?php system("ls"); ?>  ' <br>
 `you can adjust the payload as you wish`
 
-Next you will get the result:
-![Result](/assets/images/LEKIR-LFI2RCE/4.png)
+Next you will get the result: <br>
+
+![Result](/assets/images/LEKIR-LFI2RCE/4.png) <br>
 
 3. Use The Payload On Our Target
-Now, We just need to copy our payload paste on target web's parameter
-![payload](/assets/images/LEKIR-LFI2RCE/5.png)
+Now, We just need to copy our payload paste on target web's parameter <br>
+
+![payload](/assets/images/LEKIR-LFI2RCE/5.png) <br>
+ 
 As we can see,we are successfully executed our malicious payload
 Now we are able to see the list of files and directory
 `The result might be different depends on your payload`
