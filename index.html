@@ -4,11 +4,11 @@ title: Home
 ---
 
 <div class="home-content">
-  <h1 class="centered-text" id="glitchText">Welcome to My CyberSec World</h1>
+  <h1 class="centered-text glitch" id="glitchText">Welcome to My CyberSec World</h1>
   <p class="centered-text" id="typewriter"></p>
 
-  <br><br><h2>Latest Blog Posts</h2>
-  <ul class="blog-list">
+  <h2 class="centered-text">Latest Blog Posts</h2>
+  <ul class="blog-list centered-list">
     {% for post in site.posts limit:3 %}
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -17,20 +17,19 @@ title: Home
     {% endfor %}
   </ul>
 
-  <br><h2>Projects</h2>
-  <ul class="project-list">
+  <h2 class="centered-text">Projects</h2>
+  <ul class="project-list centered-list">
     <li><a href="#">VulnGuard | Coming Soon</a></li>
   </ul>
-
 </div>
 
 <script>
   // Typewriter effect
   const typewriterText = "Explore my journey in cybersecurity, from hacking to secure coding. Check out my blog!";
-  const typewriterElement = document.getElementById('typewriter');
   let index = 0;
 
   function typeWriter() {
+    const typewriterElement = document.getElementById('typewriter');
     if (index < typewriterText.length) {
       typewriterElement.innerHTML += typewriterText.charAt(index);
       index++;
@@ -40,7 +39,7 @@ title: Home
         typewriterElement.innerHTML = "";
         index = 0;
         typeWriter();
-      }, 5000); // 5 seconds delay before restarting
+      }, 5000); // Restart typewriter effect
     }
   }
 
@@ -48,19 +47,13 @@ title: Home
   function createGlitchEffect() {
     const glitchText = document.getElementById('glitchText');
     const originalText = glitchText.innerText;
-    
+
     setInterval(() => {
-      const glitchChance = Math.random();
-      if (glitchChance < 0.3) {
-        const glitchedText = originalText
-          .split('')
+      if (Math.random() < 0.3) {
+        glitchText.innerText = originalText.split('')
           .map(char => Math.random() < 0.5 ? String.fromCharCode(char.charCodeAt(0) + Math.floor(Math.random() * 10) - 5) : char)
           .join('');
-        glitchText.innerText = glitchedText;
-        
-        setTimeout(() => {
-          glitchText.innerText = originalText;
-        }, 100);
+        setTimeout(() => glitchText.innerText = originalText, 100);
       }
     }, 100);
   }
