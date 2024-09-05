@@ -10,7 +10,7 @@ title: Home
   <h2 class="centered-text">Latest Blog Posts</h2>
   <ul class="blog-list centered-list">
     {% for post in site.posts limit:3 %}
-      <li class="blog_list_li">
+      <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
       </li>
