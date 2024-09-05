@@ -71,6 +71,7 @@ a:hover {
 
 /* Blog and Project List Styling */
 .blog-list, .project-list {
+  text-align: center;
   list-style-type: none;
   padding: 0;
   margin: 0 auto;
@@ -79,7 +80,8 @@ a:hover {
 
 .blog-list li, .project-list li {
   margin-bottom: 15px;
-  text-align: left;
+  text-align: center;
+  display: inline-block
 }
 
 .post-date {
@@ -115,3 +117,4 @@ a:hover {
     text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff, 0 -0.04em 0 #fffc00;
   }
 }
+

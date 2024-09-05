@@ -8,9 +8,9 @@ title: Home
   <p class="centered-text" id="typewriter"></p>
 
   <h2 class="centered-text">Latest Blog Posts</h2>
-  <ul text-align: center class="blog-list centered-list">
+  <ul class="blog-list centered-list">
     {% for post in site.posts limit:3 %}
-      <li  display: inline-block>
+      <li class="blog_list_li">
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
         <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
       </li>
