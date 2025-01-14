@@ -33,17 +33,9 @@ const CONFIG = {
       // To hide the `External Projects` section, keep it empty.
       projects: [
         {
-          title: 'Project Name',
+          title:'ForensicaLab',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut.',
-          imageUrl:
-            'https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg',
-          link: 'https://example.com',
-        },
-        {
-          title: 'Project Name',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc ut.',
+            'Coming Soon',
           imageUrl:
             'https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg',
           link: 'https://example.com',
@@ -52,7 +44,7 @@ const CONFIG = {
     },
   },
   seo: {
-    title: 'Portfolio of Aliff Zulhelmi',
+    title: 'Aliff Zulhelmi',
     description: '',
     imageURL: '',
   },
@@ -111,13 +103,13 @@ const CONFIG = {
   educations: [
     {
       institution: 'German-Malaysian Institute',
-      degree: 'Diploma',
+      degree: 'Diploma In Cyber Security Technology',
       from: '2024',
       to: '2027',
     },
     {
       institution: 'SMK Sungai Besi',
-      degree: 'SPM',
+      degree: 'SPM - Computer Science',
       from: '2019',
       to: '2024',
     },
@@ -139,11 +131,11 @@ const CONFIG = {
     snippetVersion: 6,
   },
   themeConfig: {
-    defaultTheme: 'lofi',
+    defaultTheme: 'dark',
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
-    disableSwitch: false,
+    disableSwitch: true,
 
     // Should use the prefers-color-scheme media-query,
     // using user system preferences, instead of the hardcoded defaultTheme
