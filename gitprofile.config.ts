@@ -50,10 +50,8 @@ const CONFIG = {
   },
   social: {
     linkedin: 'aliff-zulhelmi',
-    twitter: 'AliffZulhelmi06',
     mastodon: '',
     researchGate: '',
-    facebook: 'aliffzulhelmi21',
     instagram: '',
     reddit: '',
     threads: '',
@@ -66,7 +64,7 @@ const CONFIG = {
     stackoverflow: '', // example: '1/jeff-atwood'
     skype: '',
     telegram: '',
-    website: '',
+    website: 'https://aliff-zulhelmi-ak4nai.gitbook.io/ak4nai',
     phone: '',
     email: 'aliffzulhelmi06@gmail.com',
   },
@@ -86,7 +84,7 @@ const CONFIG = {
     'Git',
     'Capture The Flag',
     'Malware Analysis',
-    'Penetration Tester',
+    'Penetration Testing',
     'Web Hacking',
   ],
   experiences: [
